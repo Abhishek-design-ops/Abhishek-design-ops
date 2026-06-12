@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek G | Full Stack Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        primary: '#0ea5e9',
+                        secondary: '#38bdf8',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles for animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+        
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white font-bold text-xl tracking-wider">AG<span class="text-primary">.</span></a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#experience" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#education" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block hover:text-primary transition-colors px-3 py-2 rounded-md text-base font-medium mobile-link">About</a>
+                <a href="#skills" class="block hover:text-primary transition-colors px-3 py-2 rounded-md text-base font-medium mobile-link">Skills</a>
+                <a href="#experience" class="block hover:text-primary transition-colors px-3 py-2 rounded-md text-base font-medium mobile-link">Experience</a>
+                <a href="#projects" class="block hover:text-primary transition-colors px-3 py-2 rounded-md text-base font-medium mobile-link">Projects</a>
+                <a href="#education" class="block hover:text-primary transition-colors px-3 py-2 rounded-md text-base font-medium mobile-link">Education</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center z-10 fade-in-section">
+            <p class="text-primary font-medium tracking-wide mb-2">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4">Abhishek G.</h1>
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-400 mb-6">I build things for the web.</h2>
+            <p class="mt-4 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                A dedicated and results-driven <span class="text-white font-medium">Full Stack Developer</span> specializing in building (and occasionally designing) exceptional digital experiences using modern web technologies like React, Django, and Python.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:abhiabhishek48706@gmail.com" class="px-8 py-3 bg-primary text-white rounded-md font-medium hover:bg-secondary transition-colors duration-300 shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+                    Get In Touch
+                </a>
+                <a href="#projects" class="px-8 py-3 border border-slate-600 text-white rounded-md font-medium hover:border-primary hover:text-primary transition-colors duration-300">
+                    View My Work
+                </a>
+            </div>
+            
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="mailto:abhiabhishek48706@gmail.com" class="text-slate-400 hover:text-primary transition-colors text-2xl" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+918792283723" class="text-slate-400 hover:text-primary transition-colors text-2xl" title="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors text-2xl" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors text-2xl" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="flex items-center mb-8">
+                <h2 class="text-3xl font-bold text-white tracking-tight">About Me</h2>
+                <div class="h-px bg-slate-700 flex-grow ml-4"></div>
+            </div>
+            
+            <div class="prose prose-invert max-w-none text-lg text-slate-300 leading-relaxed">
+                <p class="mb-4">
+                    I am a passionate computer science student at Government Engineering College, Karwar, set to graduate in 2026. My journey in web development started with a curiosity about how things work on the internet, which quickly evolved into a passion for building scalable, high-quality applications.
+                </p>
+                <p class="mb-4">
+                    As a Full Stack Developer Intern at SkyllX, I've gained hands-on experience bridging the gap between elegant frontend interfaces and robust backend architectures. I enjoy problem-solving, software testing, and continuously learning new technologies.
+                </p>
+                <p>
+                    When I'm not coding, you can find me playing cricket, working on my fitness, listening to music, video editing, or experimenting with new AI tools.
+                </p>
+            </div>
+            
+            <!-- Quick Facts -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-center space-x-3 text-slate-400">
+                    <i class="fas fa-language text-primary w-5 text-center"></i>
+                    <span><strong>Languages:</strong> English, Kannada, Hindi</span>
+                </div>
+                <div class="flex items-center space-x-3 text-slate-400">
+                    <i class="fas fa-map-marker-alt text-primary w-5 text-center"></i>
+                    <span><strong>Location:</strong> Bengaluru / Karnataka</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Technical Skills</h2>
+                <div class="h-px bg-slate-700 flex-grow ml-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Frontend -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-primary/50 transition-colors">
+                    <div class="text-primary mb-4 text-3xl"><i class="fab fa-react"></i></div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Frontend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">HTML5</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">CSS3</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">JavaScript</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300 text-primary border border-primary/30">React</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-primary/50 transition-colors">
+                    <div class="text-primary mb-4 text-3xl"><i class="fab fa-python"></i></div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">Python</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300 text-green-400 border border-green-400/30">Django</span>
+                    </div>
+                </div>
+
+                <!-- Database & Data -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-primary/50 transition-colors">
+                    <div class="text-primary mb-4 text-3xl"><i class="fas fa-database"></i></div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Data & DB</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">SQL</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">MySQL</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">NumPy</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">Pandas</span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 hover:border-primary/50 transition-colors">
+                    <div class="text-primary mb-4 text-3xl"><i class="fas fa-tools"></i></div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Tools & Testing</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">Git/GitHub</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">VS Code</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">Cursor AI</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-700 text-sm rounded-full text-slate-300">Manual Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Experience & Certifications</h2>
+                <div class="h-px bg-slate-700 flex-grow ml-4"></div>
+            </div>
+
+            <div class="relative border-l border-slate-700 ml-3 md:ml-6 space-y-12">
+                <!-- Experience Item 1 -->
+                <div class="relative pl-8 md:pl-0">
+                    <div class="hidden md:block absolute w-4 h-4 bg-primary rounded-full -left-[8.5px] top-1.5 border-4 border-slate-900"></div>
+                    <div class="md:block absolute w-4 h-4 bg-primary rounded-full -left-[8.5px] top-1.5 border-4 border-slate-900 md:hidden"></div>
+                    
+                    <div class="md:ml-8 bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-bold text-white">Full Stack Developer Intern</h3>
+                            <span class="text-primary font-mono text-sm mt-1 md:mt-0">Jan 2026 - Ongoing</span>
+                        </div>
+                        <h4 class="text-lg text-slate-400 mb-4 font-medium">SkyllX Technologies, Bengaluru</h4>
+                        <p class="text-slate-300">
+                            Gaining intensive hands-on training in frontend and backend architecture. Developing and managing databases while delivering features for real-time applications. Collaborating in a fast-paced environment to build scalable web solutions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="relative pl-8 md:pl-0 mt-12">
+                    <div class="hidden md:block absolute w-4 h-4 bg-secondary rounded-full -left-[8.5px] top-1.5 border-4 border-slate-900"></div>
+                    <div class="md:block absolute w-4 h-4 bg-secondary rounded-full -left-[8.5px] top-1.5 border-4 border-slate-900 md:hidden"></div>
+                    
+                    <div class="md:ml-8">
+                        <h3 class="text-xl font-bold text-white mb-6">Notable Certifications</h3>
+                        <div class="space-y-4">
+                            <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                                <div>
+                                    <h4 class="text-white font-medium">Artificial Intelligence & Machine Learning Intern</h4>
+                                    <p class="text-slate-400 text-sm">Infosys Springboard</p>
+                                </div>
+                                <span class="text-slate-500 font-mono text-sm mt-2 sm:mt-0">Sep 2025</span>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+                                <div>
+                                    <h4 class="text-white font-medium">Soft Skill Programme</h4>
+                                    <p class="text-slate-400 text-sm">UNXT</p>
+                                </div>
+                                <span class="text-slate-500 font-mono text-sm mt-2 sm:mt-0">Mar 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Featured Projects</h2>
+                <div class="h-px bg-slate-700 flex-grow ml-4"></div>
+            </div>
+
+            <!-- Project Card -->
+            <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 flex flex-col md:flex-row hover:border-primary/50 transition-all duration-300 group">
+                <div class="md:w-5/12 bg-slate-900 p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-slate-700 relative overflow-hidden">
+                    <!-- Abstract representation of project since we don't have images -->
+                    <div class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')]"></div>
+                    <i class="fas fa-hamburger text-8xl text-slate-700 group-hover:text-primary transition-colors duration-500 relative z-10"></i>
+                </div>
+                
+                <div class="md:w-7/12 p-8 flex flex-col justify-center">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <p class="text-primary font-mono text-sm mb-1">Dec 2025</p>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">Food Delivery System</h3>
+                        </div>
+                        <div class="flex space-x-3 text-xl text-slate-400">
+                            <a href="#" class="hover:text-white transition-colors" title="View Source"><i class="fab fa-github"></i></a>
+                            <a href="#" class="hover:text-white transition-colors" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        A comprehensive digital platform designed specifically to empower and assist small food vendors. The application provides a seamless ordering interface for users while offering vendors a robust dashboard to manage menus, track orders, and analyze sales. Built to be highly responsive and user-friendly.
+                    </p>
+                    
+                    <div class="mt-auto">
+                        <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm font-mono text-slate-400">
+                            <li>MongoDB</li>
+                            <li>Express.js</li>
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Django Placeholder Project -->
+            <div class="mt-8 bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-8 text-center hover:border-slate-600 transition-colors border-dashed">
+                <i class="fab fa-python text-4xl text-slate-600 mb-4"></i>
+                <h3 class="text-xl font-bold text-slate-300 mb-2">Django Backend API (In Progress)</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Currently working on robust REST APIs using Django and Django Rest Framework to integrate advanced backend features into portfolio applications.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <div class="flex items-center mb-12">
+                <h2 class="text-3xl font-bold text-white tracking-tight">Education</h2>
+                <div class="h-px bg-slate-700 flex-grow ml-4"></div>
+            </div>
+
+            <div class="grid gap-6">
+                <!-- Degree -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-slate-800/80 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">B.E. in Computer Science and Engineering</h3>
+                        <p class="text-lg text-primary font-medium mt-1">Government Engineering College, Karwar</p>
+                        <p class="text-slate-400 mt-2"><i class="fas fa-graduation-cap mr-2"></i>CGPA: 7.5</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-slate-500 font-mono bg-slate-900 px-3 py-1 rounded">
+                        Class of 2026
+                    </div>
+                </div>
+
+                <!-- PUC -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-slate-800/80 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">PUC in Science (PCMB)</h3>
+                        <p class="text-lg text-slate-300 font-medium mt-1">MDRPU College, Kalli, Sirsi</p>
+                        <p class="text-slate-400 mt-2"><i class="fas fa-percentage mr-2"></i>83%</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-slate-500 font-mono bg-slate-900 px-3 py-1 rounded">
+                        Completed 2022
+                    </div>
+                </div>
+
+                <!-- SSLC -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 flex flex-col md:flex-row justify-between items-start md:items-center hover:bg-slate-800/80 transition-colors">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">SSLC</h3>
+                        <p class="text-lg text-slate-300 font-medium mt-1">MDMR School, Keladi, Sagara</p>
+                        <p class="text-slate-400 mt-2"><i class="fas fa-percentage mr-2"></i>92.93%</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-slate-500 font-mono bg-slate-900 px-3 py-1 rounded">
+                        Completed 2020
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Footer Section -->
+    <footer id="contact" class="pt-20 pb-10 text-center relative border-t border-slate-800">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-section">
+            <p class="text-primary font-mono text-sm mb-4">What's Next?</p>
+            <h2 class="text-4xl font-bold text-white mb-6">Get In Touch</h2>
+            <p class="text-slate-400 mb-10 leading-relaxed">
+                Whether you have a question, a project opportunity, or just want to say hi, my inbox is always open. As a developer with Python and Django experience, I'm eager to tackle new backend challenges alongside frontend projects.
+            </p>
+            
+            <a href="mailto:abhiabhishek48706@gmail.com" class="inline-block px-8 py-4 border border-primary text-primary rounded-md font-medium hover:bg-primary/10 transition-colors duration-300 mb-16">
+                Say Hello
+            </a>
+
+            <!-- Social Links for Footer -->
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors text-xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors text-xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="tel:+918792283723" class="text-slate-500 hover:text-white transition-colors text-xl">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            
+            <p class="text-slate-600 font-mono text-sm">
+                Designed & Built by Abhishek G.<br>
+                <span class="text-xs mt-2 inline-block">&copy; 2026 All Rights Reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // Navbar background change on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-lg');
+                    navbar.classList.replace('bg-slate-900/80', 'bg-slate-900/95');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                    navbar.classList.replace('bg-slate-900/95', 'bg-slate-900/80');
+                }
+            });
+
+            // Intersection Observer for scroll animations (Fade-in effect)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Trigger animation for hero section immediately
+            setTimeout(() => {
+                const hero = document.querySelector('#hero .fade-in-section');
+                if(hero) hero.classList.add('is-visible');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
